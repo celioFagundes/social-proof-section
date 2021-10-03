@@ -1,0 +1,163 @@
+@import './variables.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@400;500;600;700&display=swap');
+
+@mixin flexDisplay($justify,$align,$direction){
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+body{
+    padding: 60px;
+    font-family: 'Spartan', sans-serif;
+    font-weight: 700;
+}
+
+.container{
+    max-width: 1200px; 
+    margin : 0 auto;  
+}
+.top-section{
+    @include flexDisplay(space-between,center, row);
+    margin-bottom: 50px;
+    width:100%;  
+    flex-wrap: wrap;
+
+    @media(max-width:940px){
+        justify-content: center;
+    }
+    
+}
+
+.description-container{
+    @include flexDisplay(space-between ,flex-start, column);
+    height: 100%;
+    width: 400px;
+    
+    h1{
+        font-size: 45px;
+        font-weight: 700;
+        color: $primaryColor;
+        margin-bottom: 20px;
+    }
+    p{  
+        font-weight: 500;
+        color: $darkMagenta
+    }
+}
+
+.rating-container{
+    @include flexDisplay(center, center, column);
+    position: relative;
+    
+
+    @media(min-width: 1070px){
+        right: 100px;
+    }
+    
+}
+.rating-item{
+    @include flexDisplay(flex-start, center, row);
+    padding: 15px 40px 15px 25px;
+    position: relative;
+    width: 420px;
+    background-color: $lightMagenta;
+    border-radius: 10px;
+    margin: 10px;
+
+   
+    &.item-1{
+        
+        @media(min-width: 1070px){
+            right: 40px;
+        }
+    }
+    &.item-3{
+        
+        @media(min-width: 1070px){
+            left: 40px;
+        }
+    }
+    p{  
+        font-size: 15px;
+        font-weight: bold;
+        color: $primaryColor;
+        margin-left: 15px
+    }
+}
+.stars{
+    height: 20px;
+    width: 85px;
+    background-image: url('../images/icon-star.svg');
+    background-repeat: repeat-x;
+}
+
+
+.bottom-section{
+    @include flexDisplay(center, center, row);
+    width: 100%
+}
+.cards-container{
+    @include flexDisplay(space-between, center, row);
+    width: 100%;
+    flex-wrap: wrap;
+
+    @media(max-width:900px){
+        justify-content: center;
+    }
+    
+}
+.card{
+    @include flexDisplay(space-between, flex-start, column);
+    background-color: $primaryColor;
+    position: relative;
+    padding: 35px 20px;
+    margin-right: 40px;
+    border-radius: 10px;
+    height: 230px;
+    width: 360px;
+    
+    &.card-2{
+        top: 20px;
+    }
+    &.card-3{
+        top: 40px;
+    }
+
+    p{
+        font-size: 15px;
+        font-weight: normal;
+        color:$lightMagenta
+    }
+}
+.user-info{
+    @include flexDisplay(flex-start, center, row);
+    flex-grow: 1;
+    margin-bottom: 15px;
+}
+.user-photo img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.user-description{
+    margin-left: 15px;
+    
+    h3{ 
+        font-size: 15px;
+        color: $lightMagenta;
+    }
+    p {
+        font-size: 15px;
+        color: $secondary;
+    }
+}
