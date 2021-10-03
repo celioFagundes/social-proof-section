@@ -13,17 +13,27 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
 }
 body{
-    padding: 60px;
+    height: 100vh;
+    @include flexDisplay(center,center, row);
     font-family: 'Spartan', sans-serif;
     font-weight: 700;
+    background: url( '../images/bg-pattern-top-desktop.svg'), url('../images/bg-pattern-bottom-desktop.svg');
+    background-size: 45% , 80%;
+    background-repeat: no-repeat;
+    background-position: top left, right bottom;  
+    
 }
 
 .container{
     max-width: 1200px; 
-    margin : 0 auto;  
+    margin :  auto;  
+    
+}
+.main-container{  
+    border: 5px solid white;
+
 }
 .top-section{
     @include flexDisplay(space-between,center, row);
@@ -42,11 +52,18 @@ body{
     height: 100%;
     width: 400px;
     
+    @media(max-width:410px){
+        width: 100%;
+    }
     h1{
-        font-size: 45px;
+        font-size: 48px;
         font-weight: 700;
         color: $primaryColor;
         margin-bottom: 20px;
+
+        @media(max-width:410px){
+            font-size: 30px;
+        }
     }
     p{  
         font-weight: 500;
@@ -73,9 +90,11 @@ body{
     border-radius: 10px;
     margin: 10px;
 
-   
-    &.item-1{
-        
+    @media(max-width:410px){
+        width: 100%;
+        flex-direction: column;
+    }
+    &.item-1{ 
         @media(min-width: 1070px){
             right: 40px;
         }
@@ -103,45 +122,51 @@ body{
 
 .bottom-section{
     @include flexDisplay(center, center, row);
-    width: 100%
+    width: 100%;
+    
 }
 .cards-container{
-    @include flexDisplay(space-between, center, row);
+    @include flexDisplay(center, center, row);
     width: 100%;
     flex-wrap: wrap;
-
     @media(max-width:900px){
         justify-content: center;
     }
     
 }
 .card{
-    @include flexDisplay(space-between, flex-start, column);
+    @include flexDisplay(space-between, center, column);
     background-color: $primaryColor;
     position: relative;
-    padding: 35px 20px;
-    margin-right: 40px;
+    padding: 30px 25px;
     border-radius: 10px;
-    height: 230px;
+    height: 210px;
     width: 360px;
+    margin-right: 20px;
     
+    @media(max-width:410px){
+        height: 100%;
+        width: 100%;
+    }
     &.card-2{
         top: 20px;
     }
     &.card-3{
         top: 40px;
     }
-
-    p{
+    p{  
         font-size: 15px;
         font-weight: normal;
-        color:$lightMagenta
+        
+        color:$lightMagenta;
+        flex-grow: 1;
     }
 }
 .user-info{
     @include flexDisplay(flex-start, center, row);
-    flex-grow: 1;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
+    width: 100%;
+    
 }
 .user-photo img{
     height: 40px;
@@ -151,13 +176,14 @@ body{
 }
 .user-description{
     margin-left: 15px;
-    
     h3{ 
         font-size: 15px;
         color: $lightMagenta;
+        
     }
     p {
         font-size: 15px;
         color: $secondary;
+        
     }
 }
