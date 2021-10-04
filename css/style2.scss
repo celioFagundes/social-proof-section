@@ -1,0 +1,194 @@
+@import './variables.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@400;500;600;700&display=swap');
+
+@mixin flexDisplay($justify,$align,$direction){
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+
+}
+*{
+    
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    @include flexDisplay(center,center, row);
+    font-family: 'Spartan', sans-serif;
+    font-weight: 700;
+    background: url( '../images/bg-pattern-top-desktop.svg'), url('../images/bg-pattern-bottom-desktop.svg');
+    background-size: 45% , 80%;
+    background-repeat: no-repeat;
+    background-position: top left, right bottom;  
+    
+}
+
+.container{
+    max-width: 1200px; 
+    margin :  auto;  
+    
+}
+.main-container{  
+    border: 5px solid white;
+
+}
+.top-section{
+    @include flexDisplay(space-between,center, row);
+    margin-bottom: 50px;
+    width:100%;  
+    flex-wrap: wrap;
+
+    @media(max-width:940px){
+        justify-content: center;
+    }
+    
+}
+
+.description-container{
+    @include flexDisplay(space-between ,flex-start, column);
+    height: 100%;
+    width: 400px;
+    
+    @media(max-width:410px){
+        width: 100%;
+    }
+    h1{
+        font-size: 48px;
+        font-weight: 700;
+        color: $primaryColor;
+        margin-bottom: 20px;
+
+        @media(max-width:410px){
+            font-size: 30px;
+        }
+    }
+    p{  
+        font-weight: 500;
+        color: $darkMagenta
+    }
+}
+
+.rating-container{
+    @include flexDisplay(center, center, column);
+    position: relative;
+    
+
+    @media(min-width: 1070px){
+        right: 100px;
+    }
+    
+}
+.rating-item{
+    @include flexDisplay(flex-start, center, row);
+    padding: 15px 40px 15px 25px;
+    position: relative;
+    width: 420px;
+    background-color: $lightMagenta;
+    border-radius: 10px;
+    margin: 10px;
+
+    @media(max-width:410px){
+        width: 100%;
+        flex-direction: column;
+    }
+    &.item-1{ 
+        @media(min-width: 1070px){
+            right: 40px;
+        }
+    }
+    &.item-3{
+        
+        @media(min-width: 1070px){
+            left: 40px;
+        }
+    }
+    p{  
+        font-size: 15px;
+        font-weight: bold;
+        color: $primaryColor;
+        margin-left: 15px
+    }
+}
+.stars{
+    height: 20px;
+    width: 85px;
+    background-image: url('../images/icon-star.svg');
+    background-repeat: repeat-x;
+}
+
+.bottom-section{
+    @include flexDisplay(center, center, row);
+    width: 100%;
+    margin:0;
+}
+.cards-container{
+    @include flexDisplay(center, center, row);
+    width: 100%;
+    flex-wrap: wrap;
+    margin:0;
+    @media(max-width:900px){
+        justify-content: center;
+    }
+    
+}
+.card{
+    @include flexDisplay(space-between, center, column);
+    background-color: $primaryColor;
+    position: relative;
+    padding: 30px 25px;
+    border-radius: 10px;
+    height: 210px;
+    width: 360px;
+    margin-right: 20px;
+    margin:0;
+    @media(max-width:410px){
+        height: 100%;
+        width: 100%;
+    }
+    &.card-2{
+        top: 20px;
+    }
+    &.card-3{
+        top: 40px;
+    }
+    p{  
+        font-size: 15px;
+        font-weight: normal;
+        
+        color:$lightMagenta;
+        flex-grow: 1;
+        margin:0;
+    }
+}
+.user-info{
+    @include flexDisplay(flex-start, center, row);
+    margin-bottom: 25px;
+    width: 100%;
+    margin:0;
+    
+}
+.user-photo img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin:0;
+}
+.user-description{
+    margin-left: 15px;
+    h2{ 
+        font-size: 15px;
+        color: $lightMagenta;
+        margin:0;
+        
+    }
+    p {
+        font-size: 15px;
+        color: $secondary;
+        margin:0;
+        
+    }
+}
